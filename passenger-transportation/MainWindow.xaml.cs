@@ -129,25 +129,5 @@ namespace passenger_transportation
                 staffList.Items.SortDescriptions.Add(new SortDescription(lbi.Name, selectSortMethodWindow.ascending.IsChecked == true ? ListSortDirection.Ascending : ListSortDirection.Descending));
             }
         }
-        private void Search_Click(object sender, RoutedEventArgs e)
-        {
-            DataContext = db.Staff.Local.ToObservableCollection();
-            StaffWindow StaffWindow = new StaffWindow(new Staff());
-            if (StaffWindow.ShowDialog() == true)
-            {
-                DataContext = db.Staff.Local.Where(staff => returnTrueIfFind(StaffWindow, staff.ShortId, staff.LastName, staff.Name, staff.Patronymic, staff.BirthdayDate, staff.ContactPhone, staff.Department)).ToList();
-            }
-        }
-        private bool returnTrueIfFind(StaffWindow StaffWindow, int shortId, string lastName, string name, string patronymic, string birthdateDate, long contactPhone, string department)
-        {
-            if (StaffWindow.Staff.ShortId == 0) shortId = 0;
-            if (StaffWindow.Staff.LastName == null) lastName = null;
-            if (StaffWindow.Staff.Name == null) name = null;
-            if (StaffWindow.Staff.Patronymic == null) patronymic = null;
-            if (StaffWindow.Staff.BirthdayDate == null) birthdateDate = null;
-            if (StaffWindow.Staff.ContactPhone == 0) contactPhone = 0;
-            if (StaffWindow.Staff.Department == null) department = null;
-            return shortId == StaffWindow.Staff.ShortId && lastName == StaffWindow.Staff.LastName && name == StaffWindow.Staff.Name && patronymic == StaffWindow.Staff.Patronymic && birthdateDate == StaffWindow.Staff.BirthdayDate && contactPhone == StaffWindow.Staff.ContactPhone && department == StaffWindow.Staff.Department;
-        }
     }
 }
