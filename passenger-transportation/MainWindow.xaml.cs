@@ -119,6 +119,7 @@ namespace passenger_transportation
             StaffListExcelReport ExcelExport = new StaffListExcelReport();
             ExcelExport.Export_Excel(db.Staff.Local.ToObservableCollection());
         }
+        // Сортировка персонала
         private void Sort_Click(object sender, RoutedEventArgs e)
         {
             SelectSortMethodWindow selectSortMethodWindow= new SelectSortMethodWindow();
