@@ -62,13 +62,6 @@
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
-            <Button Content="Поиск" Margin="10" Click="Search_Click" Background="#768C9E" Foreground="White">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
             <Button Content="Сортировка" Margin="10" Click="Sort_Click" Background="#768C9E" Foreground="White">
                 <Button.Resources>
                     <Style TargetType="Border">
